@@ -43,7 +43,7 @@ public class Move : MonoBehaviour
     public void Atteck()
     {
         Main.inpuAtteck = true;
-        //camera.Shake = true;
+        camera.Shake = true;
     }
     public void Magic()
     {

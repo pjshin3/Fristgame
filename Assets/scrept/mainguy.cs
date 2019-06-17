@@ -145,8 +145,8 @@ public class mainguy : MonoBehaviour
         Debug.Log("트리거 충돌 = "+ collision.gameObject.tag);
         if(collision.gameObject.tag == "anermy")
         {
-            collision.gameObject.GetComponent<Zombie>().Helth--;
-            collision.gameObject.GetComponent<Zombie>().reciveDamege();
+            collision.gameObject.GetComponent<Zombie>().Helth = collision.gameObject.GetComponent<Zombie>().Helth -3;
+            collision.gameObject.GetComponent<Zombie>().reciveDamege(3);
         }
     }
 
@@ -177,9 +177,9 @@ public class mainguy : MonoBehaviour
         if(isanermycreate)
         {
             Anermycount++;
-            Instantiate(Anermy, new Vector3(-18, 2, 49), Quaternion.identity);
+            Instantiate(Anermy, new Vector3(5, -13, 49), Quaternion.identity);
 
-            if(Anermycount == 40)
+            if(Anermycount == 10)
             {
                 Anermycount = 0;
                 isanermycreate = false;

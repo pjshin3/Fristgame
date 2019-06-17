@@ -50,7 +50,7 @@ public class Maincamera_action : MonoBehaviour
     {
         if (Shake)
         {
-            iTween.ShakePosition(Maincamera, transform.position, 0.2f);
+            iTween.ShakePosition(Maincamera, new Vector3(0.2f,0.1f,0),0.2f);
 
             Shake = false;
         }

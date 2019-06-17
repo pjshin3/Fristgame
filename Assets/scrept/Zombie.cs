@@ -75,18 +75,18 @@ public class Zombie : MonoBehaviour
 
     void Dead()
     {
-        if (Helth == 0 && !isdead)
+        if (Helth <= 0 && !isdead)
         {
             isdead = true;
             animator.SetTrigger("dead");
-
         }
+
 
     }
 
-    public void reciveDamege()
+    public void reciveDamege(int Damege)
     {
-        if (Helth != 0 && !isdead)
+        if (Helth >= 0 && !isdead)
         {
             animator.SetTrigger("coll");
         }
