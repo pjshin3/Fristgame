@@ -1,5 +1,6 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Move : MonoBehaviour
 {
@@ -49,5 +50,9 @@ public class Move : MonoBehaviour
     {
         Main.inputMagic = true;
         //camera.Shake = true;
+    }
+    public void reset()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
