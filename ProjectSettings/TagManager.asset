@@ -11,6 +11,7 @@ TagManager:
   - magic
   - effect
   - anermy
+  - Damege
   layers:
   - Default
   - TransparentFX

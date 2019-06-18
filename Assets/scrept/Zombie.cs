@@ -18,6 +18,9 @@ public class Zombie : MonoBehaviour
 
     Vector3 moveVelocity = Vector3.zero;
 
+    public bool isclone = false;
+
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -79,6 +82,10 @@ public class Zombie : MonoBehaviour
         {
             isdead = true;
             animator.SetTrigger("dead");
+            if (isclone)
+            {
+                Destroy(this.gameObject, 2);
+            }
         }
 
 

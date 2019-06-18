@@ -6,6 +6,7 @@ public class mainguy : MonoBehaviour
 {
     public int speed = 3;
     public int jumppower = 3;
+    public int power = 3;
 
     public int Helth = 3;
     bool isdead = false;
@@ -19,6 +20,10 @@ public class mainguy : MonoBehaviour
     public LayerMask whatIsGround;
 
     GameObject Anermy;
+    GameObject Damege;
+
+    GameObject wp;
+
 
 
     public bool inputright = false;
@@ -50,6 +55,8 @@ public class mainguy : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
 
         Anermy = GameObject.FindGameObjectWithTag("anermy");
+        Damege = GameObject.FindGameObjectWithTag("Damege");
+        wp = GameObject.FindGameObjectWithTag("wp");
 
         Move ui = GameObject.FindGameObjectWithTag("Manager").GetComponent<Move>();
         ui.Init();
@@ -145,8 +152,12 @@ public class mainguy : MonoBehaviour
         Debug.Log("트리거 충돌 = "+ collision.gameObject.tag);
         if(collision.gameObject.tag == "anermy")
         {
-            collision.gameObject.GetComponent<Zombie>().Helth = collision.gameObject.GetComponent<Zombie>().Helth -3;
-            collision.gameObject.GetComponent<Zombie>().reciveDamege(3);
+            collision.gameObject.GetComponent<Zombie>().Helth = collision.gameObject.GetComponent<Zombie>().Helth - power;
+            collision.gameObject.GetComponent<Zombie>().reciveDamege(power);
+            GameObject clone = Instantiate(Damege, new Vector3(collision.transform.position.x, collision.transform.position.y + 1.1f, 49), Quaternion.identity);
+            clone.GetComponent<damege>().Init(power);
+            Destroy(clone,0.5f);
+
         }
     }
 
@@ -167,6 +178,8 @@ public class mainguy : MonoBehaviour
         {
             inputMagic = false;
             animator.SetTrigger("Magic");
+
+            wpchenge();
         }
     }
 
@@ -177,7 +190,8 @@ public class mainguy : MonoBehaviour
         if(isanermycreate)
         {
             Anermycount++;
-            Instantiate(Anermy, new Vector3(5, -13, 49), Quaternion.identity);
+            GameObject zombie = Instantiate(Anermy, new Vector3(-7, 9, 49), Quaternion.identity);
+            zombie.GetComponent<Zombie>().isclone = true;
 
             if(Anermycount == 10)
             {
@@ -196,5 +210,11 @@ public class mainguy : MonoBehaviour
                 isanermycreate = true;
             }
         }
+    }
+
+
+    void wpchenge()
+    {
+        wp.GetComponent<wp>().Init("all_set_Animation 1_15");
     }
 }
