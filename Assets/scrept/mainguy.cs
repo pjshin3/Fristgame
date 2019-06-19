@@ -28,6 +28,9 @@ public class mainguy : MonoBehaviour
 
 
 
+    List<string> itemList = new List<string>();
+
+
     public bool inputright = false;
     public bool inputleft = false;
     public bool inpuJump = false;
@@ -259,5 +262,14 @@ public class mainguy : MonoBehaviour
     void wpchenge()
     {
         wp.GetComponent<wp>().Init("all_set_Animation 1_15");
+    }
+
+    public void additem(string itemname)
+    {
+        itemList.Add(itemname);
+
+        GameObject Text = Instantiate(Damege, new Vector3(transform.position.x, transform.position.y + 1, 49), Quaternion.identity);
+        Text.GetComponent<damege>().Init(" Add Itme in Inventory !   "+ itemname);
+        Destroy(Text, 1);
     }
 }

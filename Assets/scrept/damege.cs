@@ -14,6 +14,12 @@ public class damege : MonoBehaviour
 
         damege_text.SetText("" + poewr);
     }
+    public void Init(string poewr)
+    {
+        damege_text = GetComponent<TextMeshPro>();
+
+        damege_text.SetText("" + poewr);
+    }
 
     // Update is called once per frame
     void Update()
