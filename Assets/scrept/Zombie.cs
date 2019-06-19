@@ -30,39 +30,13 @@ public class Zombie : MonoBehaviour
 
     private void Update()
     {
-    
-        Move();
-        Dead();
-        if (inputleft)
+        if (!isdead)
         {
-            loop++;
-            if(loop == 100)
-            {
-                loop = 0;
-                inputleft = false;
-                inputright = true;
-            }
+            Move();
+            Dead();
+            Automove();
         }
-        else if(inputright)
-        {
-            loop++;
-            if (loop == 100)
-            {
-                loop = 0;
-                inputleft = false;
-                inputright = false;
-            }
-        }
-        else
-        {
-            loop++;
-            if (loop == 300)
-            {
-                loop = 0;
-                inputleft = true;
-                inputright = false;
-            }
-        }
+      
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -84,7 +58,7 @@ public class Zombie : MonoBehaviour
             animator.SetTrigger("dead");
             if (isclone)
             {
-                Destroy(this.gameObject, 2);
+                Destroy(this.gameObject, 1.3f);
             }
         }
 
@@ -93,7 +67,7 @@ public class Zombie : MonoBehaviour
 
     public void reciveDamege(int Damege)
     {
-        if (Helth >= 0 && !isdead)
+        if (Helth > 0 && !isdead)
         {
             animator.SetTrigger("coll");
         }
@@ -124,5 +98,37 @@ public class Zombie : MonoBehaviour
         }
     }
 
-
+    void Automove()
+    {
+        if (inputleft)
+        {
+            loop++;
+            if (loop == 100)
+            {
+                loop = 0;
+                inputleft = false;
+                inputright = true;
+            }
+        }
+        else if (inputright)
+        {
+            loop++;
+            if (loop == 100)
+            {
+                loop = 0;
+                inputleft = false;
+                inputright = false;
+            }
+        }
+        else
+        {
+            loop++;
+            if (loop == 300)
+            {
+                loop = 0;
+                inputleft = true;
+                inputright = false;
+            }
+        }
+    }
 }

@@ -49,7 +49,7 @@ public class Move : MonoBehaviour
     public void Magic()
     {
         Main.inputMagic = true;
-        //camera.Shake = true;
+        camera.Shake = true;
     }
     public void reset()
     {

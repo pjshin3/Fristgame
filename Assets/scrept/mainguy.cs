@@ -21,6 +21,8 @@ public class mainguy : MonoBehaviour
 
     GameObject Anermy;
     GameObject Damege;
+    GameObject Fireball;
+    GameObject Werter;
 
     GameObject wp;
 
@@ -46,7 +48,7 @@ public class mainguy : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        Screen.SetResolution(Screen.width, (Screen.width * 16) / 9, true);
+        //Screen.SetResolution(Screen.width, (Screen.width * 16) / 9, true);
     }
 
     void Start()
@@ -54,8 +56,10 @@ public class mainguy : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
 
-        Anermy = GameObject.FindGameObjectWithTag("anermy");
-        Damege = GameObject.FindGameObjectWithTag("Damege");
+        Anermy = Resources.Load<GameObject>("Cheriter/Anermi/zobie");
+        Damege = Resources.Load<GameObject>("font/Damege");
+        Fireball = Resources.Load<GameObject>("effect/fire_ball");
+        Werter = Resources.Load<GameObject>("effect/werter");
         wp = GameObject.FindGameObjectWithTag("wp");
 
         Move ui = GameObject.FindGameObjectWithTag("Manager").GetComponent<Move>();
@@ -118,7 +122,26 @@ public class mainguy : MonoBehaviour
         if (inpuAtteck)
         {
             inpuAtteck = false;
-            animator.SetTrigger("atteck");
+            //animator.SetTrigger("atteck");
+
+            if (transform.localScale.x == -1)
+            {
+                GameObject werter = Instantiate(Werter, new Vector3(transform.position.x - 4, transform.position.y, 49), Quaternion.identity);
+                werter.GetComponent<Werter>().init();
+                werter.GetComponent<Werter>().isclone = true;
+
+                Destroy(werter, 0.4f);
+            }
+            else
+            {
+                GameObject werter = Instantiate(Werter, new Vector3(transform.position.x + 4, transform.position.y, 49), Quaternion.identity);
+                werter.GetComponent<Werter>().isclone = true;
+                werter.GetComponent<Werter>().init();
+                werter.GetComponent<Werter>().input_darection = true;
+
+                Destroy(werter, 0.4f);
+            }
+
         }
     }
 
@@ -152,12 +175,15 @@ public class mainguy : MonoBehaviour
         Debug.Log("트리거 충돌 = "+ collision.gameObject.tag);
         if(collision.gameObject.tag == "anermy")
         {
-            collision.gameObject.GetComponent<Zombie>().Helth = collision.gameObject.GetComponent<Zombie>().Helth - power;
-            collision.gameObject.GetComponent<Zombie>().reciveDamege(power);
-            GameObject clone = Instantiate(Damege, new Vector3(collision.transform.position.x, collision.transform.position.y + 1.1f, 49), Quaternion.identity);
-            clone.GetComponent<damege>().Init(power);
-            Destroy(clone,0.5f);
+            if(!(collision.gameObject.GetComponent<Zombie>().Helth <= 0))
+            {
+                collision.gameObject.GetComponent<Zombie>().Helth = collision.gameObject.GetComponent<Zombie>().Helth - power;
+                collision.gameObject.GetComponent<Zombie>().reciveDamege(power);
 
+                GameObject clone = Instantiate(Damege, new Vector3(collision.transform.position.x, collision.transform.position.y + 1.1f, 49), Quaternion.identity);
+                clone.GetComponent<damege>().Init(power);
+                Destroy(clone, 0.5f);
+            }
         }
     }
 
@@ -177,9 +203,26 @@ public class mainguy : MonoBehaviour
         if (inputMagic)
         {
             inputMagic = false;
-            animator.SetTrigger("Magic");
 
-            wpchenge();
+            if(transform.localScale.x == -1)
+            {
+                GameObject fireball = Instantiate(Fireball, new Vector3(transform.position.x - 1, transform.position.y, 49), Quaternion.identity);
+                fireball.GetComponent<Magic_fire>().init();
+                fireball.GetComponent<Magic_fire>().isclone = true;
+
+                Destroy(fireball, 2);
+            }
+            else
+            {
+                GameObject fireball = Instantiate(Fireball, new Vector3(transform.position.x + 1, transform.position.y, 49), Quaternion.identity);
+                fireball.GetComponent<Magic_fire>().init();
+                fireball.GetComponent<Magic_fire>().isclone = true;
+                fireball.GetComponent<Magic_fire>().input_darection = true;
+
+                Destroy(fireball, 2);
+            }
+
+          
         }
     }
 
