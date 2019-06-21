@@ -125,25 +125,25 @@ public class mainguy : MonoBehaviour
         if (inpuAtteck)
         {
             inpuAtteck = false;
-            //animator.SetTrigger("atteck");
+            animator.SetTrigger("atteck");
 
-            if (transform.localScale.x == -1)
-            {
-                GameObject werter = Instantiate(Werter, new Vector3(transform.position.x - 4, transform.position.y, 49), Quaternion.identity);
-                werter.GetComponent<Werter>().init();
-                werter.GetComponent<Werter>().isclone = true;
+            //if (transform.localScale.x == -1)
+            //{
+            //    GameObject werter = Instantiate(Werter, new Vector3(transform.position.x - 4, transform.position.y, 49), Quaternion.identity);
+            //    werter.GetComponent<Werter>().init();
+            //    werter.GetComponent<Werter>().isclone = true;
 
-                Destroy(werter, 0.4f);
-            }
-            else
-            {
-                GameObject werter = Instantiate(Werter, new Vector3(transform.position.x + 4, transform.position.y, 49), Quaternion.identity);
-                werter.GetComponent<Werter>().isclone = true;
-                werter.GetComponent<Werter>().init();
-                werter.GetComponent<Werter>().input_darection = true;
+            //    Destroy(werter, 0.4f);
+            //}
+            //else
+            //{
+            //    GameObject werter = Instantiate(Werter, new Vector3(transform.position.x + 4, transform.position.y, 49), Quaternion.identity);
+            //    werter.GetComponent<Werter>().isclone = true;
+            //    werter.GetComponent<Werter>().init();
+            //    werter.GetComponent<Werter>().input_darection = true;
 
-                Destroy(werter, 0.4f);
-            }
+            //    Destroy(werter, 0.4f);
+            //}
 
         }
     }
