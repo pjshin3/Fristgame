@@ -24,7 +24,7 @@ public class damege : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-
+        lplplplp
         transform.position += Vector3.up * 1 * Time.deltaTime;
 
     }
