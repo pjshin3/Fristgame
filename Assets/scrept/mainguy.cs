@@ -236,7 +236,7 @@ public class mainguy : MonoBehaviour
         if(isanermycreate)
         {
             Anermycount++;
-            GameObject zombie = Instantiate(Anermy, new Vector3(-7, 9, 49), Quaternion.identity);
+            GameObject zombie = Instantiate(Anermy, new Vector3(-30, -14, 49), Quaternion.identity);
             zombie.GetComponent<Zombie>().isclone = true;
 
             if(Anermycount == 10)
@@ -248,7 +248,7 @@ public class mainguy : MonoBehaviour
         }
         else
         {
-            Anermycount++;
+            //Anermycount++;
 
             if(Anermycount == 1000)
             {

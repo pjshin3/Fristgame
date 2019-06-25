@@ -9,9 +9,6 @@ public class Move : MonoBehaviour
     mainguy Main;
     Maincamera_action camera;
 
-
-
-
     public void Init()
     {
         MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
