@@ -187,6 +187,12 @@ public class mainguy : MonoBehaviour
                 clone.GetComponent<damege>().Init(power);
                 Destroy(clone, 0.5f);
             }
+        }else if(collision.gameObject.tag == "UnderGround")
+        {
+            collision.GetComponent<Entery>().CreateLoglike();
+
+
+            transform.position = new Vector3(0, -250, 49);
         }
     }
 

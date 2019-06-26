@@ -56,10 +56,9 @@ public class Zombie : MonoBehaviour
         {
             isdead = true;
             animator.SetTrigger("dead");
-            if (isclone)
-            {
-                Destroy(this.gameObject, 1.3f);
-            }
+
+            Destroy(this.gameObject, 1.3f);
+            
         }
 
 
