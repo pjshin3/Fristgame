@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class underground_1 : MonoBehaviour
 {
-    int MOSTER = 0;
-    int ITEMBOX = 1;
-    int HEART = 2;
-    int COIN = 3;
-
     // Start is called before the first frame update
     public void Init()
     {
@@ -42,8 +37,6 @@ public class underground_1 : MonoBehaviour
         }
     }
 
-
-
     void MosterCase()
     {
         int Count = Random.Range(1, 4);
@@ -54,7 +47,7 @@ public class underground_1 : MonoBehaviour
 
         for(int i = 0; i<Count; i++)
         {
-            GameObject Anermy_ob = Instantiate(Anermy, new Vector3(Random.Range(-2, 4), transform.position.y - 3.5f, 49), Quaternion.identity);
+            GameObject Anermy_ob = Instantiate(Anermy, new Vector3(Random.Range(-2, 4), this.transform.position.y, 49), Quaternion.identity);
 
             Anermy_ob.transform.parent = this.transform;
         }
@@ -65,7 +58,7 @@ public class underground_1 : MonoBehaviour
 
         GameObject Box = Resources.Load<GameObject>("Background/object/Box_Open");
 
-        GameObject Anermy_ob = Instantiate(Box, new Vector3( -1, transform.position.y - 3.5f, 49), Quaternion.identity);
+        GameObject Anermy_ob = Instantiate(Box, new Vector3( -0.5f, this.transform.position.y-0.5f, 49), Quaternion.identity);
     
         Anermy_ob.transform.parent = this.transform;
 
@@ -74,7 +67,7 @@ public class underground_1 : MonoBehaviour
     {
         GameObject Heart = Resources.Load<GameObject>("Background/object/Heart");
 
-        GameObject Heart_ob = Instantiate(Heart, new Vector3(-1, transform.position.y - 3.5f, 49), Quaternion.identity);
+        GameObject Heart_ob = Instantiate(Heart, new Vector3(-0.5f, this.transform.position.y- 0.5f, 49), Quaternion.identity);
 
         Heart_ob.transform.parent = this.transform;
     }
@@ -89,7 +82,7 @@ public class underground_1 : MonoBehaviour
 
         for (int i = 0; i < Count; i++)
         {
-            GameObject Coin_ob = Instantiate(Coin, new Vector3(Random.Range(-4, 4), transform.position.y - 2.5f, 49), Quaternion.identity);
+            GameObject Coin_ob = Instantiate(Coin, new Vector3(Random.Range(-4, 4), this.transform.position.y + 0.5f, 49), Quaternion.identity);
 
             Coin_ob.transform.parent = this.transform;
         }

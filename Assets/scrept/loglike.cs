@@ -21,12 +21,12 @@ public class loglike : MonoBehaviour
 
         GameObject Main = Instantiate(Grid, new Vector3(0, Y, 49), Quaternion.identity);
 
-        int MapCount = Random.Range(1, 5);
+        int MapCount = Random.Range(1, 6);
 
         for (int i = 0; i < MapCount; i++)
         {
 
-            int nb = Random.Range(0, 2);
+            int nb = Random.Range(0, 3);
 
                 GameObject Map = Resources.Load<GameObject>("Tile/underground/underground_" + nb);
                 GameObject sub = Instantiate(Map, new Vector3(0, Y, 49), Quaternion.identity);
