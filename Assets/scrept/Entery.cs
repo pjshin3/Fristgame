@@ -19,7 +19,16 @@ public class Entery : MonoBehaviour
 
     public void CreateLoglike()
     {
-        GameObject MapManager = GameObject.FindGameObjectWithTag("mapmanager");
-        MapManager.GetComponent<loglike>().Init();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "MainMen")
+        {
+            GameObject MapManager = GameObject.FindGameObjectWithTag("mapmanager");
+            MapManager.GetComponent<loglike>().Init();
+
+            GameObject Mainguy = GameObject.FindGameObjectWithTag("MainMen");
+            Mainguy.transform.position = new Vector3(0, -250, 49);
+        }
     }
 }

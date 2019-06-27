@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class underground_1 : MonoBehaviour
 {
+
+    public Vector3 potal_0;
+    public Vector3 potal_1;
+    public Vector3 potal_2;
+
     // Start is called before the first frame update
     public void Init()
     {
+
+        FindPotalPostion();
+
         int CASE = Random.Range(0, 4);
 
         Debug.Log("CASE = " + CASE);
@@ -87,4 +95,21 @@ public class underground_1 : MonoBehaviour
             Coin_ob.transform.parent = this.transform;
         }
     }
+
+    void FindPotalPostion()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if (transform.Find("potal_" + i) != null)
+            {
+                if (i == 0)
+                    potal_0 = transform.Find("potal_" + i).transform.position;
+                else if(i == 1)
+                    potal_1 = transform.Find("potal_" + i).transform.position;
+                else if(i == 2)
+                    potal_2 = transform.Find("potal_" + i).transform.position;
+            }
+        }
+    }
+
 }
