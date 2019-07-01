@@ -28,7 +28,7 @@ public class Entery : MonoBehaviour
             MapManager.GetComponent<loglike>().Init();
 
             GameObject Mainguy = GameObject.FindGameObjectWithTag("MainMen");
-            Mainguy.transform.position = new Vector3(0, -250, 49);
+            Mainguy.transform.position = new Vector3(-7, -250, 49);
         }
     }
 }

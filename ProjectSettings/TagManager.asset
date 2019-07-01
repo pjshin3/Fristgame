@@ -13,6 +13,7 @@ TagManager:
   - anermy
   - Damege
   - fireball
+  - mapmanager
   layers:
   - Default
   - TransparentFX

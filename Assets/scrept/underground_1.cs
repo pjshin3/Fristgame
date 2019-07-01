@@ -13,8 +13,6 @@ public class underground_1 : MonoBehaviour
     public void Init()
     {
 
-        FindPotalPostion();
-
         int CASE = Random.Range(0, 4);
 
         Debug.Log("CASE = " + CASE);
@@ -55,7 +53,7 @@ public class underground_1 : MonoBehaviour
 
         for(int i = 0; i<Count; i++)
         {
-            GameObject Anermy_ob = Instantiate(Anermy, new Vector3(Random.Range(-2, 4), this.transform.position.y, 49), Quaternion.identity);
+            GameObject Anermy_ob = Instantiate(Anermy, new Vector3(this.transform.position.x + Random.Range(-2, 4), this.transform.position.y, 49), Quaternion.identity);
 
             Anermy_ob.transform.parent = this.transform;
         }
@@ -66,7 +64,7 @@ public class underground_1 : MonoBehaviour
 
         GameObject Box = Resources.Load<GameObject>("Background/object/Box_Open");
 
-        GameObject Anermy_ob = Instantiate(Box, new Vector3( -0.5f, this.transform.position.y-0.5f, 49), Quaternion.identity);
+        GameObject Anermy_ob = Instantiate(Box, new Vector3(this.transform.position.x - 0.5f, this.transform.position.y-0.5f, 49), Quaternion.identity);
     
         Anermy_ob.transform.parent = this.transform;
 
@@ -75,7 +73,7 @@ public class underground_1 : MonoBehaviour
     {
         GameObject Heart = Resources.Load<GameObject>("Background/object/Heart");
 
-        GameObject Heart_ob = Instantiate(Heart, new Vector3(-0.5f, this.transform.position.y- 0.5f, 49), Quaternion.identity);
+        GameObject Heart_ob = Instantiate(Heart, new Vector3(this.transform.position.x - 0.5f, this.transform.position.y- 0.5f, 49), Quaternion.identity);
 
         Heart_ob.transform.parent = this.transform;
     }
@@ -90,25 +88,9 @@ public class underground_1 : MonoBehaviour
 
         for (int i = 0; i < Count; i++)
         {
-            GameObject Coin_ob = Instantiate(Coin, new Vector3(Random.Range(-4, 4), this.transform.position.y + 0.5f, 49), Quaternion.identity);
+            GameObject Coin_ob = Instantiate(Coin, new Vector3(this.transform.position.x + Random.Range(-4, 4), this.transform.position.y + 0.5f, 49), Quaternion.identity);
 
             Coin_ob.transform.parent = this.transform;
-        }
-    }
-
-    void FindPotalPostion()
-    {
-        for(int i = 0; i < 3; i++)
-        {
-            if (transform.Find("potal_" + i) != null)
-            {
-                if (i == 0)
-                    potal_0 = transform.Find("potal_" + i).transform.position;
-                else if(i == 1)
-                    potal_1 = transform.Find("potal_" + i).transform.position;
-                else if(i == 2)
-                    potal_2 = transform.Find("potal_" + i).transform.position;
-            }
         }
     }
 
