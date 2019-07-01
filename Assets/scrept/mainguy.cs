@@ -33,7 +33,7 @@ public class mainguy : MonoBehaviour
 
     public bool inputright = false;
     public bool inputleft = false;
-    public bool inpuJump = false;
+    public bool inputAtteck2 = false;
     public bool inpuAtteck = false;
     public bool inputMagic = false;
 
@@ -113,12 +113,12 @@ public class mainguy : MonoBehaviour
     }
     void Jump()
     {
-        if (inpuJump && (animator.GetBool("isground")))
+        if (inputAtteck2)
         {
-            inpuJump = false;
-            animator.SetTrigger("jump");
-            rigidbody.AddForce(Vector3.up * jumppower, ForceMode2D.Impulse);
+            inputAtteck2 = false;
+            animator.SetTrigger("atteck2");
         }
+          
     }
     void Atteck()
     {

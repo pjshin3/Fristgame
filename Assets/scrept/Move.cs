@@ -36,7 +36,7 @@ public class Move : MonoBehaviour
     }
     public void Jump()
     {
-        Main.inpuJump = true;
+        Main.inputAtteck2 = true;
     }
     public void Atteck()
     {
