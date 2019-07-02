@@ -9,6 +9,10 @@ public class Zombie : MonoBehaviour
     private bool isdead;
     Animator animator;
 
+    GameObject MainCamera;
+    Maincamera_action camera;
+
+
     Rigidbody2D rigidbody;
 
     int loop = 0;
@@ -26,6 +30,8 @@ public class Zombie : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         inputleft = true;
+        MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        camera = MainCamera.GetComponent<Maincamera_action>();
     }
 
     private void Update()
@@ -54,6 +60,7 @@ public class Zombie : MonoBehaviour
     {
         if (Helth <= 0 && !isdead)
         {
+            camera.Shake = true;
             isdead = true;
             animator.SetTrigger("dead");
 
@@ -69,6 +76,7 @@ public class Zombie : MonoBehaviour
         if (Helth > 0 && !isdead)
         {
             animator.SetTrigger("coll");
+            camera.Shake = true;
         }
     }
 

@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 public class Move : MonoBehaviour
 {
     GameObject playe;
-    GameObject MainCamera;
+    //GameObject MainCamera;
     mainguy Main;
-    Maincamera_action camera;
+    //Maincamera_action camera;
 
     public void Init()
     {
-        MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+       // MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         playe = GameObject.FindGameObjectWithTag("MainMen");
         Main = playe.GetComponent<mainguy>();
-        camera = MainCamera.GetComponent<Maincamera_action>();
+        //camera = MainCamera.GetComponent<Maincamera_action>();
 
     }
 
@@ -41,12 +41,12 @@ public class Move : MonoBehaviour
     public void Atteck()
     {
         Main.inpuAtteck = true;
-        camera.Shake = true;
+       //camera.Shake = true;
     }
     public void Magic()
     {
         Main.inputMagic = true;
-        camera.Shake = true;
+        //camera.Shake = true;
     }
     public void reset()
     {

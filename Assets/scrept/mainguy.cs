@@ -173,7 +173,7 @@ public class mainguy : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         Debug.Log("트리거 충돌 = "+ collision.gameObject.tag);
         if(collision.gameObject.tag == "anermy")

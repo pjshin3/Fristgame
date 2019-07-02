@@ -25,11 +25,11 @@ public class potal : MonoBehaviour
 
             if(transform.localScale.x == -1)
             {
-                Mainguy.transform.position = new Vector3(MovePostion.x - 1, MovePostion.y, 49);
+                Mainguy.transform.position = new Vector3(MovePostion.x - 2, MovePostion.y, 49);
             }
             else
             {
-                Mainguy.transform.position = new Vector3(MovePostion.x + 1, MovePostion.y, 49);
+                Mainguy.transform.position = new Vector3(MovePostion.x + 2, MovePostion.y, 49);
             }
         }
     }
