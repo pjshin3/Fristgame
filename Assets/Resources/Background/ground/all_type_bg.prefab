@@ -5233,7 +5233,7 @@ Tilemap:
       e33: 1
   m_TileColorArray:
   - m_RefCount: 1
-    m_Data: {r: 0.74362093, g: 0.40127245, b: 0.49739146, a: 1}
+    m_Data: {r: 0.9108779, g: 0.41657203, b: 0.49996698, a: 1}
   - m_RefCount: 370
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
