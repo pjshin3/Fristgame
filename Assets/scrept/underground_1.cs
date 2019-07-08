@@ -49,7 +49,7 @@ public class underground_1 : MonoBehaviour
 
         Debug.Log("Count = " + Count);
 
-        GameObject Anermy = Resources.Load<GameObject>("Cheriter/Anermi/zobie");
+        GameObject Anermy = Resources.Load<GameObject>("Cheriter/Anermi/zombie/zobie");
 
         for(int i = 0; i<Count; i++)
         {
