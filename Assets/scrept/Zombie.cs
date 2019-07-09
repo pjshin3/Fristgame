@@ -11,7 +11,7 @@ public class Zombie : MonoBehaviour
 
     GameObject MainCamera;
     Maincamera_action camera;
-
+    public float Speed = 0;
 
     Rigidbody2D rigidbody;
 
@@ -93,7 +93,7 @@ public class Zombie : MonoBehaviour
             moveVelocity = Vector3.left;
             animator.SetBool("isworking", true);
 
-            transform.position += moveVelocity * 2* Time.deltaTime;
+            transform.position += moveVelocity * Speed * Time.deltaTime;
         }
         else if (inputright)
         {
@@ -101,7 +101,7 @@ public class Zombie : MonoBehaviour
             moveVelocity = Vector3.right;
             animator.SetBool("isworking", true);
 
-            transform.position += moveVelocity * 2 * Time.deltaTime;
+            transform.position += moveVelocity * Speed * Time.deltaTime;
         }
     }
 
@@ -110,7 +110,7 @@ public class Zombie : MonoBehaviour
         if (inputleft)
         {
             loop++;
-            if (loop == 100)
+            if (loop == 400)
             {
                 loop = 0;
                 inputleft = false;
@@ -120,7 +120,7 @@ public class Zombie : MonoBehaviour
         else if (inputright)
         {
             loop++;
-            if (loop == 100)
+            if (loop == 400)
             {
                 loop = 0;
                 inputleft = false;
