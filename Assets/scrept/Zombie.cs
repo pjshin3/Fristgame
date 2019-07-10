@@ -110,7 +110,7 @@ public class Zombie : MonoBehaviour
         if (inputleft)
         {
             loop++;
-            if (loop == 400)
+            if (loop == 200)
             {
                 loop = 0;
                 inputleft = false;
@@ -120,7 +120,7 @@ public class Zombie : MonoBehaviour
         else if (inputright)
         {
             loop++;
-            if (loop == 400)
+            if (loop == 200)
             {
                 loop = 0;
                 inputleft = false;
