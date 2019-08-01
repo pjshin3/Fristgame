@@ -89,19 +89,40 @@ public class Zombie : MonoBehaviour
         }
         else if (inputleft)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-            moveVelocity = Vector3.left;
-            animator.SetBool("isworking", true);
+            if(this.transform.localScale == new Vector3(1, 1, 1))
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                moveVelocity = Vector3.left;
+                animator.SetBool("isworking", true);
 
-            transform.position += moveVelocity * Speed * Time.deltaTime;
+                transform.position += moveVelocity * Speed * Time.deltaTime;
+            }
+            else
+            {
+                moveVelocity = Vector3.left;
+                animator.SetBool("isworking", true);
+
+                transform.position += moveVelocity * Speed * Time.deltaTime;
+            }
+
         }
         else if (inputright)
         {
-            transform.localScale = new Vector3(1, 1, 1);
-            moveVelocity = Vector3.right;
-            animator.SetBool("isworking", true);
+            if (this.transform.localScale == new Vector3(-1, 1, 1))
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                moveVelocity = Vector3.right;
+                animator.SetBool("isworking", true);
 
-            transform.position += moveVelocity * Speed * Time.deltaTime;
+                transform.position += moveVelocity * Speed * Time.deltaTime;
+            }
+            else
+            {
+                moveVelocity = Vector3.right;
+                animator.SetBool("isworking", true);
+
+                transform.position += moveVelocity * Speed * Time.deltaTime;
+            }
         }
     }
 

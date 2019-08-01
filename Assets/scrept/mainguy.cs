@@ -38,6 +38,8 @@ public class mainguy : MonoBehaviour
     public bool inputMagic = false;
 
 
+    bool coll = false;
+
     public GameObject Wp;
 
 
@@ -77,6 +79,7 @@ public class mainguy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Physics2D.IgnoreLayerCollision(10,9);
     }
     private void FixedUpdate()
     {
@@ -164,9 +167,9 @@ public class mainguy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        Debug.Log("메인 충돌 =");
+        Debug.Log("충돌 했습니.");
 
-        if(collision.gameObject.tag != "ground")
+        if(collision.gameObject.tag == "anermy")
         {
             Helth--;
         }
@@ -203,8 +206,6 @@ public class mainguy : MonoBehaviour
         {
             isdead = true;
             animator.SetTrigger("dead");
-
-
         }
     }
 
